@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Ning Nell!</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    padding: 24px; overflow-x: hidden;
+    font-family: Georgia, 'Times New Roman', serif; color: #75445d;
+    background: radial-gradient(circle at top, #fff8fb, #fce4ee 55%, #f8d5e4);
+  }
+  .petal { position: fixed; top: -30px; font-size: 22px; opacity: .65;
+    animation: fall linear infinite; pointer-events: none; }
+  @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+  .card {
+    width: min(680px, 100%); padding: clamp(26px, 6vw, 52px);
+    background: rgba(255,255,255,.88); border: 1px solid #f2c8da;
+    border-radius: 28px; box-shadow: 0 18px 55px rgba(153,75,111,.16);
+    text-align: center; position: relative;
+  }
+  .eyebrow { letter-spacing: .18em; text-transform: uppercase; font: 12px Arial,sans-serif; color: #bd7897; }
+  h1 { font-size: clamp(34px, 8vw, 58px); line-height: 1.05; margin: 14px 0; color: #c56f98; }
+  .subtitle { font: 15px Arial,sans-serif; color: #a56d85; margin-bottom: 26px; }
+  .flower { font-size: 34px; margin: 10px 0 18px; }
+  button {
+    border: 0; border-radius: 999px; padding: 14px 25px; cursor: pointer;
+    color: white; background: #d783a7; font: bold 14px Arial,sans-serif;
+    box-shadow: 0 7px 18px rgba(199,112,151,.25);
+  }
+  button:hover { background: #c96e96; }
+  .letter { display: none; text-align: left; margin-top: 28px; line-height: 1.85; font-size: 16px; }
+  .letter.show { display: block; animation: reveal .8s ease both; }
+  @keyframes reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .sign { text-align: right; color: #c16f95; font-style: italic; margin-top: 24px; }
+  .footer { margin-top: 28px; color: #bd8ba1; font: 12px Arial,sans-serif; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">A little surprise for you</div>
+  <div class="flower">🌷 💗 🌷</div>
+  <h1>Happy Birthday,<br>Ning Nell!</h1>
+  <div class="subtitle">A little wish, a lot of prayers, and lots of love.</div>
+  <button id="openBtn" onclick="openLetter()">Buka surat kecilmu 💌</button>
+  <article class="letter" id="letter">
+    <p>Selamat bertambah usia, Ning Nell! 🎂</p>
+    <p>Semoga di usia yang baru ini, semua hal baik semakin dekat denganmu. Semoga kamu selalu diberi kesehatan, kebahagiaan, umur yang berkah, rezeki yang lancar, dan hati yang selalu kuat dalam menghadapi apa pun.</p>
+    <p>Terima kasih sudah menjadi teman yang menyenangkan dan sudah hadir dengan caramu sendiri. Semoga kamu tidak pernah merasa sendirian, selalu dikelilingi orang-orang yang tulus menyayangimu, dan selalu punya alasan untuk tersenyum. Kalau suatu hari keadaan terasa berat, semoga kamu tetap ingat bahwa kamu hebat karena sudah sampai sejauh ini. Tidak apa-apa kalau sesekali lelah, istirahatlah sebentar, lalu lanjutkan lagi pelan-pelan.</p>
+    <p>Aku berharap semua impian yang sedang kamu perjuangkan satu per satu bisa terwujud. Semoga langkahmu dimudahkan, urusanmu dilancarkan, dan hal-hal yang selama ini kamu doakan datang pada waktu yang paling tepat. Jangan terlalu keras pada diri sendiri, ya. Kamu pantas mendapatkan hal-hal baik dan kebahagiaan yang besar.</p>
+    <p>Tetap jadi Ning Nell yang apa adanya, jangan kehilangan senyum dan sisi baik dalam dirimu. Semoga persahabatan kita juga selalu punya cerita-cerita seru untuk dikenang.</p>
+    <p>Sekali lagi, selamat ulang tahun! Enjoy your special day. You deserve all the happiness in the world! 💐✨</p>
+    <div class="sign">— dari temanmu 💗</div>
+  </article>
+  <div class="footer">Made with love, just for you ✨</div>
+</div>
+<script>
+function openLetter() {
+  document.getElementById('letter').classList.add('show');
+  document.getElementById('openBtn').textContent = 'Surat terbuka 💗';
+  document.getElementById('openBtn').disabled = true;
+}
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = ['✿','♡','🌸'][i % 3];
+  p.style.left = (Math.random() * 100) + 'vw';
+  p.style.animationDuration = (7 + Math.random() * 9) + 's';
+  p.style.animationDelay = (-Math.random() * 12) + 's';
+  document.body.appendChild(p);
+}
+</script>
+</body>
+</html>
